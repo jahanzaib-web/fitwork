@@ -1,0 +1,270 @@
+/* --- Base & Variables --- */
+:root {
+  --bg-color: #121212; /* Very dark grey/black */
+  --primary-purple: #8a2be2; /* Blue Violet - Example Purple */
+  --light-purple: #a369f0;
+  --dark-purple: #6a1eab;
+  --card-bg: #1f1f1f; /* Slightly lighter dark for cards/sections */
+  --text-color: #e0e0e0;
+  --heading-color: #ffffff;
+  --purple-glow: rgba(138, 43, 226, 0.3);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color); /* Default heading color */
+}
+
+/* --- Reusable Floating Animation --- */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px); /* Adjust float height */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.apply-float-animation {
+  animation: float 6s ease-in-out infinite; /* Slower, smoother animation */
+}
+
+/* --- Navbar --- */
+.custom-navbar {
+  background-color: var(--bg-color) !important; /* Override Bootstrap */
+  border-bottom: 1px solid var(--primary-purple);
+  box-shadow: 0 2px 10px var(--purple-glow);
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: var(--heading-color) !important;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .navbar-brand:hover {
+  color: var(--light-purple) !important;
+}
+.custom-navbar .nav-link.active {
+    color: var(--light-purple) !important; /* Active link color */
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: rgba(138, 43, 226, 0.5); /* Purple border */
+}
+.custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28163, 105, 240, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Purple icon */
+}
+
+.search-input {
+    background-color: var(--card-bg);
+    border: 1px solid var(--dark-purple);
+    color: var(--text-color);
+}
+.search-input::placeholder {
+    color: rgba(224, 224, 224, 0.6);
+}
+.search-input:focus {
+    background-color: var(--card-bg);
+    border-color: var(--light-purple);
+    box-shadow: 0 0 0 0.25rem var(--purple-glow);
+    color: var(--text-color);
+}
+
+.btn-search {
+    background-color: var(--primary-purple);
+    border-color: var(--primary-purple);
+    color: var(--heading-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-search:hover {
+    background-color: var(--light-purple);
+    border-color: var(--light-purple);
+    color: var(--heading-color);
+}
+
+
+/* --- About Section --- */
+.about-section {
+  background-color: var(--card-bg); /* Slightly lighter dark background */
+  /* color: var(--text-color); // Already set by body */
+}
+
+.about-heading {
+    color: var(--primary-purple); /* Purple heading */
+}
+
+.about-text {
+  max-width: 500px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color); /* Ensure text color */
+}
+
+.about-section img {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add shadow to images */
+    /* Floating animation applied via class in HTML */
+}
+
+.chevrons {
+  display: flex;
+  gap: 10px;
+}
+
+.chevron {
+  width: 30px;
+  height: 30px;
+  background-color: var(--primary-purple); /* Purple chevrons */
+  clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 0% 100%, 25% 50%, 0% 0%);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+.chevron:hover {
+  transform: scale(1.1);
+  background-color: var(--light-purple); /* Lighter purple on hover */
+}
+
+/* --- Gym Facilities Section --- */
+.gym-section {
+  /* background-color: var(--dark-purple); // Can use dark purple or keep black */
+   background-color: var(--bg-color); /* Keeping it black */
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); /* Adjusted clip path slightly */
+  position: relative;
+  overflow: visible; /* Allow floating elements to slightly overflow if needed */
+  padding-bottom: 10%; /* Add padding to compensate for clip-path cut */
+}
+
+/* Add overlay if needed, e.g., for a subtle gradient or color tint
+.gym-section .overlay {
+    background: rgba(18, 18, 18, 0.8); // Example overlay
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+} */
+
+.gym-section .section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--primary-purple); /* Purple title */
+  /* Keep existing animation class in HTML */
+}
+
+.facility-img {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  /* Keep existing animation class + float animation applied via class in HTML */
+}
+
+.facility-img img {
+  transition: transform 0.5s ease;
+  display: block; /* Prevents small gap below image */
+}
+
+.facility-img:hover img {
+  transform: scale(1.05);
+}
+
+/* --- Trainers Section --- */
+.trainers-section {
+    background-color: var(--card-bg); /* Match about section background */
+    /* color: var(--text-color); // Set by body */
+}
+
+.trainers-section .section-title {
+    font-weight: bold;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--primary-purple); /* Purple title */
+}
+
+.trainer-card {
+   padding: 1rem; /* Add some internal padding */
+   background-color: var(--bg-color); /* Darker background for card */
+   border-radius: 15px;
+   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Keep existing animation class + float animation applied via class in HTML */
+}
+
+.trainer-card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 10px 25px var(--purple-glow); /* Purple glow on hover */
+}
+
+.trainer-img {
+    max-width: 100%;
+    height: 300px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensure image covers space well */
+    border-radius: 10px; /* Rounded corners for image */
+    /* border: 3px solid var(--primary-purple); // Optional purple border */
+}
+
+.trainer-name {
+    color: var(--heading-color); /* White text for names */
+    margin-top: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 991.98px) { /* Below Large */
+    .about-section .row {
+        text-align: center; /* Center text content */
+    }
+     .about-text {
+        margin-left: auto;
+        margin-right: auto; /* Center paragraph */
+     }
+    .chevrons {
+        justify-content: center; /* Center chevrons */
+    }
+}
+
+@media (max-width: 767.98px) { /* Below Medium */
+  h2.section-title,
+  .about-heading,
+  .trainers-section .section-title {
+      font-size: 2rem; /* Smaller titles on mobile */
+  }
+   /* Add space between stacked trainer cards */
+  .trainer-card {
+     margin-bottom: 1.5rem;
+  }
+   /* Remove bottom margin from last card when stacked */
+  .trainers-section .row > div:last-child .trainer-card {
+      margin-bottom: 0;
+  }
+  .gym-section {
+      clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); /* Less aggressive clip-path */
+      padding-bottom: 15%;
+  }
+  .trainer-img {
+      height: 250px; /* Slightly shorter images on mobile */
+  }
+}
+
+/* Optional: Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .apply-float-animation {
+    animation: none !important; /* Disable floating animation */
+  }
+  /* Keep animate.css animations unless specifically unwanted */
+  .chevron:hover,
+  .facility-img:hover img,
+  .trainer-card:hover {
+    transform: none !important; /* Disable hover transforms */
+  }
+}

@@ -1,0 +1,147 @@
+/*--------------------------------------------------------------
+# General Styling & Variables
+--------------------------------------------------------------*/
+:root {
+    --primary-purple: #854982; /* Example purple */
+    --light-purple: #6d5959;
+    --lighter-purple: #141214;
+    --form-bg-purple: rgba(162, 126, 192, 0.3); /* Semi-transparent purple for form */
+    --form-placeholder-color: rgba(255, 255, 255, 0.7);
+    --gradient-start: #6d666b; /* Pinkish */
+    --gradient-end: #a6c1ee; /* Bluish-Purple - Adjust these to match better */
+    --gradient-end-darker: #83788b; /* Use a darker purple for the bottom */
+  }
+  
+  body {
+    font-family: sans-serif; /* Basic font */
+  }
+  
+  /*--------------------------------------------------------------
+  # Contact Section Specifics
+  --------------------------------------------------------------*/
+  .contact-section {
+    /* Subtle Gradient - Adjust colors and angle as needed */
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--lighter-purple) 50%, var(--gradient-end-darker) 100%);
+    overflow: hidden; /* Prevent potential animation overflows */
+    color: #fff; /* Default text color */
+  }
+  
+  .custom-heading {
+    color: var(--primary-purple); /* Dark purple heading */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    color: #fff; /* Override for white heading text as per image */
+  }
+  
+  .heading-underline {
+      width: 80px;
+      height: 4px;
+      background-color: var(--primary-purple); /* Or white if preferred */
+      background-color: #fff; /* White underline */
+      border-radius: 2px;
+  }
+  
+  .contact-section .lead {
+    color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for paragraph */
+  }
+  
+  /* Contact Info Icons & Text */
+  .contact-info .icon {
+    font-size: 2.5rem; /* Icon size */
+    color: #fff;       /* Icon color */
+    opacity: 0.9;
+    background-color: rgba(0, 0, 0, 0.15); /* Subtle dark background for icon */
+    padding: 10px;
+    border-radius: 10px;
+    width: 60px; /* Fixed width */
+    height: 60px; /* Fixed height */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .contact-info h5 {
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .contact-info p {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  
+  /*--------------------------------------------------------------
+  # Form Styling
+  --------------------------------------------------------------*/
+  .contact-form .form-control {
+    background-color: var(--form-bg-purple);
+    border: none; /* Remove default border */
+    border-radius: 0.75rem; /* Rounded corners */
+    padding: 0.9rem 1rem;
+    color: #fff; /* Text color when typing */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Animation transition */
+  }
+  
+  .contact-form .form-control::placeholder {
+    color: var(--form-placeholder-color);
+    opacity: 1; /* Override Bootstrap default */
+  }
+  
+  .contact-form .form-control:focus {
+    background-color: rgba(138, 73, 190, 0.45); /* Slightly darker on focus */
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* Subtle glow on focus */
+    /* Floating Animation on Focus */
+    transform: translateY(-3px);
+  }
+  
+  /*--------------------------------------------------------------
+  # Submit Button
+  --------------------------------------------------------------*/
+  .btn-submit {
+    background-color: var(--primary-purple);
+    border-color: var(--primary-purple);
+    color: #fff;
+    padding: 0.8rem 2.5rem;
+    font-weight: bold;
+    border-radius: 0.75rem; /* Match form field rounding */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease; /* Animation transition */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-submit:hover {
+    background-color: var(--light-purple); /* Lighter purple on hover */
+    border-color: var(--light-purple);
+    color: #fff;
+    /* Floating Animation on Hover */
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /*--------------------------------------------------------------
+  # Responsiveness Adjustments
+  --------------------------------------------------------------*/
+  @media (max-width: 991.98px) { /* Below Large */
+      .contact-info .d-flex {
+          justify-content: center !important; /* Center icons/text on medium/small */
+      }
+       .contact-form .text-lg-start {
+           text-align: center !important; /* Center button on smaller screens */
+       }
+        .custom-heading {
+          text-align: center;
+        }
+        .heading-underline {
+          margin-left: auto;
+          margin-right: auto;
+        }
+  }
+  
+  @media (max-width: 767.98px) { /* Below Medium */
+      .contact-info .col-md-6 {
+          flex-basis: 100%; /* Stack contact items fully on small screens */
+          justify-content: center !important; /* Ensure centering */
+      }
+      .display-4 {
+          font-size: 2.5rem; /* Slightly smaller heading on mobile */
+      }
+  }

@@ -1,0 +1,423 @@
+/* --- Base & Variables --- */
+:root {
+  --bg-color: #1a1a1a; /* Dark background */
+  --primary-purple: #533688; /* Main purple */
+  --light-purple: #a47cf8; /* Lighter purple for hover/accents */
+  --dark-purple: #5a2ab8; /* Darker purple */
+  --card-bg: #2a2a2a; /* Slightly lighter card background */
+  --text-color: #e0e0e0; /* Light grey text */
+  --heading-color: #ffffff; /* White headings */
+  --purple-glow: rgba(126, 63, 242, 0.3); /* Purple shadow/glow */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: sans-serif; /* Basic font, adjust if needed */
+  overflow-x: hidden; /* Prevent horizontal scroll issues */
+}
+.hello{
+  padding: 10px 40px;
+  font-size: larger;
+ color: rgb(145, 141, 141);
+ border-radius: 20px;
+}
+.hello:hover{
+  color: rgb(255, 255, 255);
+  background-color: #2e1758;
+  border: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+}
+
+/* --- Reusable Floating Animation --- */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px); /* Adjust float height */
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.apply-float-animation {
+  animation: float 6s ease-in-out infinite; /* Slower, smoother animation */
+}
+
+/* --- Navbar --- */
+.custom-navbar {
+  background-color: var(--bg-color) !important; /* Override Bootstrap */
+  border-bottom: 1px solid var(--primary-purple);
+  box-shadow: 0 2px 10px rgba(126, 63, 242, 0.2);
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+  color: var(--heading-color) !important;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover,
+.custom-navbar .navbar-brand:hover {
+  color: var(--light-purple) !important;
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: rgba(126, 63, 242, 0.5);
+}
+.custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28164, 124, 248, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+.search-input {
+    background-color: var(--card-bg);
+    border: 1px solid var(--dark-purple);
+    color: var(--text-color);
+}
+.search-input::placeholder {
+    color: rgba(224, 224, 224, 0.6);
+}
+.search-input:focus {
+    background-color: var(--card-bg);
+    border-color: var(--light-purple);
+    box-shadow: 0 0 0 0.25rem var(--purple-glow);
+    color: var(--text-color);
+}
+
+.btn-search {
+    background-color: var(--primary-purple);
+    border-color: var(--primary-purple);
+    color: var(--heading-color);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.btn-search:hover {
+    background-color: var(--light-purple);
+    border-color: var(--light-purple);
+    color: var(--heading-color);
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+  /* Keep your background image */
+  background-image: url(Blue\ and\ Grey\ Simple\ Dark\ Fitness\ Event\ Website\ \(1\).png);
+  background-size: cover;
+  background-position: center 60%;
+  background-repeat: no-repeat;
+  min-height: 75vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* Removed filter: grayscale - assuming you want color */
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Slightly stronger overlay, maybe purple tinted? */
+  background-color: rgba(15, 10, 30, 0.6); /* Dark purple overlay */
+  z-index: 1;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section .event-title {
+  font-size: 1rem;
+  letter-spacing: 1px;
+  color: var(--light-purple); /* Use light purple for subtitle */
+}
+
+.hero-section .main-title {
+  line-height: 1.1;
+  color: var(--heading-color); /* Ensure white heading */
+}
+.hero-section .lead {
+    color: var(--text-color); /* Ensure light text */
+}
+
+.btn-register {
+  padding: 12px 45px; /* Slightly larger padding */
+  border-radius: 30px; /* Rounded pill */
+  font-size: 1.1rem; /* Slightly larger font */
+  font-weight: bold;
+  background-color: var(--primary-purple);
+  color: var(--heading-color);
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 15px rgba(126, 63, 242, 0.3);
+}
+
+.btn-register:hover {
+  background-color: var(--light-purple);
+  color: var(--heading-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(164, 124, 248, 0.4);
+}
+
+/* --- Load Animations (Keep As Is) --- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-on-load {
+  opacity: 0;
+  animation-duration: 0.8s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+.animate-on-load.fade-in-up { animation-name: fadeInUp; }
+.animate-on-load.fade-in { animation-name: fadeIn; }
+.animate-on-load.delay-1 { animation-delay: 0.2s; }
+.animate-on-load.delay-2 { animation-delay: 0.4s; }
+.animate-on-load.delay-3 { animation-delay: 0.6s; }
+.animate-on-load.delay-4 { animation-delay: 0.7s; }
+.animate-on-load.delay-5 { animation-delay: 0.9s; }
+
+/* --- Race Section --- */
+.race-section {
+   background-color: var(--bg-color); /* Ensure dark background */
+}
+
+.race-heading {
+  color: var(--primary-purple); /* Purple heading */
+  letter-spacing: 2px;
+}
+
+.rounded-custom {
+  border-radius: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  /* Removed grayscale filter, add back if needed */
+  /* filter: grayscale(100%); */
+}
+
+.race-image {
+  max-height: 450px;
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
+   /* Float animation applied via class in HTML */
+}
+
+.race-text {
+  font-size: 1.05rem; /* Slightly larger text */
+  color: var(--text-color);
+  line-height: 1.7;
+}
+
+/* --- Map Section --- */
+.map-section {
+  background-color: var(--card-bg); /* Slightly lighter dark background */
+  overflow: hidden;
+}
+
+.map-heading {
+  color: var(--primary-purple);
+  line-height: 1.1;
+}
+
+.map-subheading {
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+/* Floating animation for map image (already defined) */
+.float-animation {
+  animation: float 6s ease-in-out infinite; /* Match duration */
+}
+
+.map-section img {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+    /* Remove grayscale if you want color */
+    /* filter: grayscale(100%); */
+}
+
+/* --- Marathon Buzz Section --- */
+.marathon-buzz {
+  background-color: var(--bg-color); /* Dark background */
+}
+
+.buzz-heading {
+  color: var(--primary-purple);
+  letter-spacing: 0.1em;
+}
+
+.buzz-card {
+  position: relative;
+  margin-bottom: 50px;
+  /* Float animation applied via class in HTML */
+}
+
+.buzz-card-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--bg-color); /* Border matches background */
+  background-color: var(--card-bg); /* Fallback bg */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  /* Removed grayscale filter */
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.buzz-card-content {
+  background-color: var(--card-bg); /* Dark card background */
+  border-radius: 25px;
+  padding: 80px 20px 30px 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 1px solid rgba(126, 63, 242, 0.2); /* Subtle purple border */
+}
+
+.buzz-card:hover .buzz-card-content {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px var(--purple-glow); /* Purple glow on hover */
+  border-color: rgba(164, 124, 248, 0.4);
+}
+
+.buzz-card-content h5 {
+  color: var(--heading-color); /* White title */
+}
+.buzz-card-content p {
+    color: var(--text-color); /* Lighter text */
+}
+
+.buzz-icon-link i {
+    color: var(--primary-purple);
+    transition: color 0.3s ease;
+}
+.buzz-icon-link:hover i {
+    color: var(--light-purple);
+}
+
+/* --- Testimonials Section --- */
+.testimonials-section {
+   background-color: var(--bg-color); /* Dark background */
+   color: var(--text-color); /* Ensure text is light */
+}
+
+.section-title-impact {
+  color: var(--primary-purple); /* Purple title */
+  font-family: 'Anton', sans-serif; /* Example impactful font */
+  letter-spacing: 0.05em;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.testimonial-item {
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 10px; /* Add slight rounding */
+  /* Float animation applied via class in HTML */
+   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transition for hover */
+}
+
+.testimonial-img {
+  display: block;
+  width: 100%;
+  height: 280px; /* Fixed height */
+  object-fit: cover; /* Cover the area */
+  border-top-left-radius: 10px; /* Match rounding */
+  border-top-right-radius: 10px;
+  /* filter: grayscale(100%); /* Optional: Keep images B&W */
+}
+
+.testimonial-content {
+  background-color: rgb(65, 28, 65); /* Purple background for content */
+  color: var(--heading-color); /* White text on purple */
+  padding: 1.5rem;
+  border-bottom-left-radius: 10px; /* Match rounding */
+  border-bottom-right-radius: 10px;
+}
+
+.testimonial-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.testimonial-author {
+  font-weight: bold;
+  font-size: 0.9rem;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.testimonial-item:hover {
+  transform: translateY(-8px); /* Lift card slightly on hover */
+  box-shadow: 0 12px 30px var(--purple-glow); /* Purple glow/shadow */
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 767.98px) {
+  .hero-section {
+      min-height: 65vh;
+      text-align: center;
+      background-position: center center;
+  }
+  .hero-section .row { justify-content: center; }
+   .hero-section .main-title { font-size: 2.5rem; }
+   .hero-section .lead { font-size: 1rem; }
+   .btn-register {
+       margin-left: auto;
+       margin-right: auto;
+       display: block;
+       width: fit-content;
+       padding: 10px 35px;
+       font-size: 1rem;
+  }
+  .race-heading, .map-heading, .buzz-heading, .section-title-impact {
+      font-size: 2.2rem; /* Smaller headings */
+  }
+  .race-text { text-align: center; padding-left: 0; margin-top: 1.5rem; }
+  .map-section .text-content { text-align: center; }
+  .map-heading { line-height: 1.2;}
+  .buzz-card { margin-bottom: 60px; }
+  .testimonial-img { height: 240px; }
+}
+
+@media (max-width: 575.98px) {
+   .hero-section { min-height: 75vh; }
+  .hero-section .main-title { font-size: 2rem; }
+}
+
+/* Optional: Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-load,
+  .apply-float-animation,
+  .float-animation {
+    animation: none !important; /* Disable animations */
+    opacity: 1; /* Ensure visibility */
+    transform: none !important; /* Reset transforms */
+  }
+  .btn-register:hover,
+  .buzz-card:hover .buzz-card-content,
+  .testimonial-item:hover {
+    transform: none !important; /* Disable hover transforms */
+  }
+}

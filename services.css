@@ -1,0 +1,469 @@
+/* --- Base & Variables --- */
+:root {
+    --bg-color: #121212; /* Very dark grey/black */
+    --primary-purple: #8a2be2; /* Blue Violet - Example Purple */
+    --light-purple: #a369f0;
+    --dark-purple: #6a1eab;
+    --card-bg: #1f1f1f; /* Slightly lighter dark for cards/sections */
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --purple-glow: rgba(138, 43, 226, 0.3);
+  }
+  
+  /* Floating Animation Definition */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Adjust float height */
+    }
+  }
+  /* Floating Animation Class */
+  .apply-float-animation {
+    animation: float 6s ease-in-out infinite; /* Slower, smoother animation */
+  }
+  
+  
+  body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg-color); /* Apply base background */
+      color: var(--text-color); /* Default text color */
+      overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+      color: var(--heading-color); /* Default heading color */
+  }
+  
+  /* --- Navbar --- */
+  .custom-navbar {
+    background-color: var(--bg-color) !important; /* Override Bootstrap */
+    border-bottom: 1px solid var(--primary-purple);
+    box-shadow: 0 2px 10px var(--purple-glow);
+  }
+  
+  .custom-navbar .navbar-brand,
+  .custom-navbar .nav-link {
+    color: var(--heading-color) !important;
+    transition: color 0.3s ease;
+  }
+  
+  .custom-navbar .nav-link:hover,
+  .custom-navbar .navbar-brand:hover {
+    color: var(--light-purple) !important;
+  }
+  .custom-navbar .nav-link.active {
+      color: var(--light-purple) !important; /* Active link color */
+  }
+  
+  .custom-navbar .navbar-toggler {
+      border-color: rgba(138, 43, 226, 0.5); /* Purple border */
+  }
+  .custom-navbar .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28163, 105, 240, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Purple icon */
+  }
+  
+  .search-input {
+      background-color: var(--card-bg);
+      border: 1px solid var(--dark-purple);
+      color: var(--text-color);
+  }
+  .search-input::placeholder {
+      color: rgba(224, 224, 224, 0.6);
+  }
+  .search-input:focus {
+      background-color: var(--card-bg);
+      border-color: var(--light-purple);
+      box-shadow: 0 0 0 0.25rem var(--purple-glow);
+      color: var(--text-color);
+  }
+  
+  .btn-search {
+      background-color: var(--primary-purple);
+      border-color: var(--primary-purple);
+      color: var(--heading-color);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  .btn-search:hover {
+      background-color: var(--light-purple);
+      border-color: var(--light-purple);
+      color: var(--heading-color);
+  }
+  
+  /* --- Fitness Promo Section --- */
+  .fitness-promo {
+      background-color: var(--bg-color); /* Use dark background */
+      padding: 5rem 0;
+      min-height: 70vh;
+      color: var(--text-color);
+  }
+  
+  .content-container {
+      z-index: 2;
+  }
+  
+  /* Purple Circle Styling */
+  .purple-circle { /* Renamed from green-circle */
+      position: absolute;
+      top: 50%;
+      right: -15%;
+      width: 55vw;
+      height: 55vw;
+      max-width: 700px;
+      max-height: 700px;
+      background-color: var(--primary-purple); /* Use purple variable */
+      border-radius: 50%;
+      transform: translateY(-50%);
+      z-index: 0;
+      opacity: 0.7; /* Adjusted opacity */
+  }
+  
+  /* Main Dumbbell Image Styling */
+  .main-dumbbell-img {
+      position: absolute;
+      bottom: 0;
+      right: 5%;
+      width: auto;
+      height: 85%;
+      max-height: 550px;
+      z-index: 1;
+      object-fit: contain;
+      /* Animation applied via class in HTML */
+  }
+  
+  /* Logo (Example using icon) */
+  .logo i {
+      color: var(--primary-purple); /* Purple icon */
+  }
+  .logo span {
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--heading-color);
+  }
+  
+  /* Headings */
+  .text-primary-purple { /* Renamed from text-primary-green */
+      color: var(--primary-purple) !important;
+  }
+  
+  /* Services List */
+  .services ul li {
+      font-size: 1.1rem;
+      color: var(--text-color);
+  }
+  .services ul i {
+      font-size: 1.2rem;
+      color: var(--primary-purple); /* Purple checkmark */
+  }
+  .services h5 {
+      color: var(--heading-color);
+  }
+  
+  /* Discount Text */
+  .discount {
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      color: var(--light-purple); /* Use light purple */
+  }
+  
+  /* Contact Button (Example if added) */
+  .btn-contact-us {
+      background-color: var(--primary-purple);
+      color: var(--heading-color);
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border: none;
+      transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-contact-us:hover {
+      background-color: var(--light-purple);
+      color: var(--heading-color);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* --- Workout Section --- */
+  /* Font import - ensure you have Orbitron linked or choose another */
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+  
+  .font-techno {
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+  }
+  
+  /* Using purple variables */
+  .text-primary-purple { /* Was text-custom-red */
+      color: var(--primary-purple);
+  }
+  .bg-primary-purple { /* Was bg-custom-red */
+      background-color: var(--primary-purple);
+  }
+  
+  .workout-section {
+      overflow: hidden;
+      background-color: var(--bg-color); /* Ensure dark bg */
+  }
+  
+  .workout-tag {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      font-size: clamp(0.8rem, 2vw, 1rem);
+      font-weight: 600;
+      color: var(--heading-color); /* White text on purple tag */
+  }
+  .workout-tag span {
+      margin-left: 0.5rem;
+      font-weight: 900;
+  }
+  
+  .main-heading {
+      font-weight: 700;
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      line-height: 1.1;
+      /* Color set by text-primary-purple class */
+  }
+  
+  .sub-heading {
+      font-weight: 500;
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      line-height: 1.4;
+      color: var(--text-color); /* Light text */
+  }
+  
+  .trainer-name {
+      margin-top: 4rem;
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+      color: var(--heading-color); /* White text */
+  }
+  
+  /* Right column styling */
+  .right-column-bg {
+      position: relative;
+      min-height: 400px;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  /* Pseudo-element for the diagonal stripes */
+  .right-column-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+          135deg,
+          var(--primary-purple) 25%, /* Purple */
+          var(--bg-color) 25%,      /* Black */
+          var(--bg-color) 50%,      /* Black */
+          var(--primary-purple) 50%, /* Purple */
+          var(--primary-purple) 75%, /* Purple */
+          var(--bg-color) 75%,      /* Black */
+          var(--bg-color) 100%     /* Black */
+      );
+      background-size: 80px 80px; /* Adjust size */
+      z-index: 1;
+      opacity: 0.6; /* Make stripes less dominant */
+  }
+  
+  .workout-image {
+      position: relative;
+      z-index: 2;
+      display: block;
+      max-height: 100vh;
+      width: auto;
+      max-width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      /* Animation applied via class in HTML */
+  }
+  
+  
+  /* --- Workout Banner Section --- */
+  /* Font import - Oswald */
+  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+  
+  .workout-banner {
+      background-color: var(--card-bg); /* Slightly lighter dark background */
+      color: var(--heading-color);
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+  }
+  
+  .workout-title {
+      font-size: calc(2.5rem + 2.5vw);
+      line-height: 1.1;
+      letter-spacing: 0.05em;
+      font-family: 'Oswald', sans-serif;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      color: var(--heading-color); /* Ensure white */
+  }
+  
+  .beginner-title {
+      font-size: calc(2rem + 2vw);
+      line-height: 1.1;
+      transform: skewX(-8deg);
+      display: inline-block;
+      font-family: 'Oswald', sans-serif;
+       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+       /* Color set by text-primary-purple class */
+  }
+  
+  .subscriber-button {
+      padding: 0.6rem 1.5rem;
+      font-weight: bold;
+      font-size: 0.9rem;
+      border: none;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      background-color: #f8f9fa; /* Keep button light */
+      color: #343a40; /* Dark text */
+  }
+  
+  .subscriber-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      background-color: #e9ecef; /* Slightly darker on hover */
+  }
+  
+  .subscriber-button i {
+      vertical-align: middle;
+      /* Color set by text-primary-purple class */
+  }
+  
+  /* Image Styling */
+  .workout-banner .workout-image { /* Specificity */
+      max-height: 500px;
+      width: auto;
+      object-fit: contain;
+      z-index: 3; /* Ensure image is above streaks */
+       /* Animation applied via class in HTML */
+  }
+  
+  /* --- Decorative Elements --- */
+  .decorative-line {
+      position: absolute;
+      width: 100px;
+      height: 15px;
+      background-color: var(--primary-purple); /* Use purple */
+      border-radius: 10px;
+      z-index: 0;
+      opacity: 0.7;
+  }
+  .decorative-line.top-left-diag { top: 20px; left: -30px; transform: rotate(-45deg); }
+  .decorative-line.top-right-diag { top: 20px; right: -30px; transform: rotate(45deg); }
+  
+  .decorative-dots {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background-image: radial-gradient(circle, var(--light-purple) 2px, transparent 3px); /* Purple dots */
+      background-size: 10px 10px;
+      z-index: 0;
+      opacity: 0.5;
+  }
+  .decorative-dots.top-left { top: 60px; left: 40px; }
+  .decorative-dots.bottom-right { bottom: 20px; right: 40px; }
+  
+  .streak {
+      position: absolute;
+      top: 0; left: 0;
+      width: 150%; height: 100%;
+      opacity: 0.15; z-index: 0;
+      pointer-events: none;
+  }
+  
+  .streak-purple { /* Was streak-blue */
+      background: linear-gradient(45deg, transparent 40%, var(--purple-glow) 50%, transparent 60%);
+      transform: translateX(-30%) translateY(-10%);
+  }
+  
+  .streak-light { /* Was streak-gold */
+       background: linear-gradient(45deg, transparent 45%, rgba(224, 224, 224, 0.3) 55%, transparent 65%); /* Light grey/white streak */
+       transform: translateX(-10%) translateY(10%);
+       animation: streakMove 20s linear infinite alternate;
+  }
+  
+  @keyframes streakMove {
+      from { transform: translateX(-10%) translateY(10%) rotate(0deg); }
+      to { transform: translateX(-15%) translateY(5%) rotate(2deg); }
+  }
+  
+  
+  /* --- Responsive Adjustments --- */
+  @media (max-width: 991.98px) { /* Below Large */
+      .purple-circle { width: 70vw; height: 70vw; right: -25%; }
+      .main-dumbbell-img { height: 75%; right: 0%; max-height: 450px; }
+      .fitness-promo { padding: 4rem 0; }
+  }
+  
+  @media (max-width: 767.98px) { /* Below Medium */
+      .fitness-promo {
+          text-align: center;
+          padding: 3rem 0 10rem;
+          overflow: visible;
+      }
+      .content-left { position: relative; z-index: 3; }
+      .purple-circle { width: 100vw; height: 100vw; right: -50%; top: 70%; opacity: 0.4; }
+      .main-dumbbell-img {
+          height: auto; width: 70%; max-width: 300px;
+          position: absolute; bottom: -50px; left: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+          /* Decide if animation should be disabled on mobile */
+          /* animation: none; */
+      }
+      .display-3 { font-size: 2.8rem; }
+      .lead { font-size: 1rem; }
+  
+      /* Workout Section */
+      .workout-section .row { align-items: stretch; }
+      .text-content { padding-top: 3rem; padding-bottom: 3rem; }
+      .right-column-bg { min-height: 450px; }
+      .trainer-name { margin-top: 2rem; }
+      .workout-section .workout-image { /* Specificity */
+          object-fit: contain; max-height: 450px; width: 100%; height: auto;
+      }
+  
+      /* Workout Banner */
+       .workout-banner { min-height: 80vh; text-align: center; }
+      .workout-title { font-size: calc(2rem + 4vw); }
+      .beginner-title { font-size: calc(1.8rem + 3.5vw); transform: skewX(0deg); }
+      .workout-banner .workout-image { /* Specificity */
+          max-height: 300px; margin-top: 2rem; position: relative; right: auto; bottom: auto;
+      }
+      .decorative-line, .decorative-dots { display: none; }
+      .streak { opacity: 0.1; }
+  }
+  
+  @media (max-width: 575.98px) { /* Below Small */
+       .workout-banner .workout-title { font-size: calc(1.8rem + 4vw); }
+      .workout-banner .beginner-title { font-size: calc(1.6rem + 3.5vw); }
+       .subscriber-button { width: 80%; margin-left: auto; margin-right: auto; display: block; }
+  }
+  
+  /* Optional: Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .apply-float-animation {
+      animation: none !important; /* Disable floating animation */
+    }
+    .streak-light {
+       animation: none !important; /* Disable streak animation */
+    }
+    /* Keep animate.css animations unless specifically unwanted */
+    .btn-contact-us:hover,
+    .subscriber-button:hover {
+      transform: none !important; /* Disable hover transforms */
+    }
+  }
